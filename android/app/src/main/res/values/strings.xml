@@ -1,3 +1,5 @@
 <resources>
+	<string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">NP8fLZTWxKx8-Gdz11Ft2X_em3L38cf47679-e91c-41f4-8a99-7f481428875a</string>
     <string name="app_name">NativeTest</string>
+    <string name="appCenterAnalytics_whenToEnableAnalytics" moduleConfig="true" translatable="false">ENABLE_IN_JS</string>
 </resources>
