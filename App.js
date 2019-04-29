@@ -8,7 +8,7 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button } from 'react-native';
-import CodePush from 'react-native-code-push';
+import codePush from 'react-native-code-push';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -17,18 +17,13 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
+
 type Props = {};
 export default class App extends Component<Props> {
 
   constructor(props) {
     super(props);
-  }
-
-  codepushSync() {
-    CodePush.sync({
-      updateDialog: true,
-      installMode: CodePush.installMode.IMMEDIATE
-    });
   }
 
   render() {
@@ -37,12 +32,13 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        <Button title="Code Push!" onPress={() => this.codepushSync()} />
         <Text>Code Push Function!</Text>
       </View>
     );
   }
 }
+
+App = CodePush(codePushOptions)(App);
 
 const styles = StyleSheet.create({
   container: {
